@@ -231,7 +231,7 @@ class ForgetPage extends React.Component {
             >
               <Input
                 prefix={<UserOutlined />}
-                placeholder={i18next.t("login:username, Email or phone")}
+                placeholder={i18next.t("login:username")}
               />
             </Form.Item>
             <br />

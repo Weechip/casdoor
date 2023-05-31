@@ -631,10 +631,9 @@ class App extends Component {
         {/* https://github.com/ant-design/ant-design/issues/40394 ant design bug. If it will be fixed, we can delete the code for control the color of Header*/}
         <Header style={{padding: "0", marginBottom: "3px", backgroundColor: this.state.themeAlgorithm.includes("dark") ? "black" : "white"}}>
           {Setting.isMobile() ? null : (
-            // <Link to={"/"}>
-            //   <div className="logo" style={{background: `url(${this.state.logo})`}} />
-            // </Link>
-            this.renderHeader()
+            <Link to={"/"}>
+              <div className="logo" style={{background: `url(${this.state.logo})`}} />
+            </Link>
           )}
           {Setting.isMobile() ?
             <React.Fragment>
