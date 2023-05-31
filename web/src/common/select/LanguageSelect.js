@@ -16,7 +16,6 @@ import React from "react";
 import * as Setting from "../../Setting";
 import {Dropdown} from "antd";
 import "../../App.less";
-import {GlobalOutlined} from "@ant-design/icons";
 
 function flagIcon(country, alt) {
   return (
@@ -55,9 +54,7 @@ class LanguageSelect extends React.Component {
 
     return (
       <Dropdown menu={{items: languageItems, onClick}} >
-        <div className="select-box" style={{display: languageItems.length === 0 ? "none" : null, ...this.props.style}} >
-          <GlobalOutlined style={{fontSize: "24px", color: "#4d4d4d"}} />
-        </div>
+        <div></div>
       </Dropdown>
     );
   }

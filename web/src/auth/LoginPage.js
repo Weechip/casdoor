@@ -945,7 +945,7 @@ class LoginPage extends React.Component {
     return (
       <React.Fragment>
         <CustomGithubCorner />
-        <div className="login-content" style={{margin: this.props.preview ?? this.parseOffset(application.formOffset)}}>
+        <div className="login-content" style={{margin: this.parseOffset(application.formOffset), width: "380px", border: Setting.isMobile() ? null : "1px solid rgb(227, 229, 231)", borderRadius: "10px", boxShadow: Setting.isMobile() ? null : "rgb(0 0 0 / 8%) 0px 4.48rem 5.27rem, rgb(0 0 0 / 6%) 0px 1.87rem 2.2rem, rgb(0 0 0 / 5%) 0px 1rem 1.17rem, rgb(0 0 0 / 4%) 0px 0.56rem 0.66rem, rgb(0 0 0 / 3%) 0px 0.29rem 0.35rem, rgb(0 0 0 / 10%) 0px 0px 0.8rem"}}>
           {Setting.inIframe() || Setting.isMobile() ? null : <div dangerouslySetInnerHTML={{__html: application.formCss}} />}
           {Setting.inIframe() || !Setting.isMobile() ? null : <div dangerouslySetInnerHTML={{__html: application.formCssMobile}} />}
           <div className="login-panel">

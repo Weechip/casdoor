@@ -17,8 +17,8 @@ import "./App.less";
 import {Helmet} from "react-helmet";
 import * as Setting from "./Setting";
 import {StyleProvider, legacyLogicalPropertiesTransformer} from "@ant-design/cssinjs";
-import {BarsOutlined, CommentOutlined, DownOutlined, InfoCircleFilled, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
-import {Alert, Avatar, Button, Card, ConfigProvider, Drawer, Dropdown, FloatButton, Layout, Menu, Result} from "antd";
+import {CommentOutlined, DownOutlined, InfoCircleFilled, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
+import {Alert, Avatar, Button, Card, ConfigProvider, Dropdown, FloatButton, Layout, Menu, Result} from "antd";
 import {Link, Redirect, Route, Switch, withRouter} from "react-router-dom";
 import OrganizationListPage from "./OrganizationListPage";
 import OrganizationEditPage from "./OrganizationEditPage";
@@ -631,13 +631,14 @@ class App extends Component {
         {/* https://github.com/ant-design/ant-design/issues/40394 ant design bug. If it will be fixed, we can delete the code for control the color of Header*/}
         <Header style={{padding: "0", marginBottom: "3px", backgroundColor: this.state.themeAlgorithm.includes("dark") ? "black" : "white"}}>
           {Setting.isMobile() ? null : (
-            <Link to={"/"}>
-              <div className="logo" style={{background: `url(${this.state.logo})`}} />
-            </Link>
+            // <Link to={"/"}>
+            //   <div className="logo" style={{background: `url(${this.state.logo})`}} />
+            // </Link>
+            this.renderHeader()
           )}
           {Setting.isMobile() ?
             <React.Fragment>
-              <Drawer title={i18next.t("general:Close")} placement="left" visible={this.state.menuVisible} onClose={this.onClose}>
+              {/* <Drawer title={i18next.t("general:Close")} placement="left" visible={this.state.menuVisible} onClose={this.onClose}>
                 <Menu
                   items={this.getMenuItems()}
                   mode={"inline"}
@@ -649,7 +650,7 @@ class App extends Component {
               </Drawer>
               <Button icon={<BarsOutlined />} onClick={this.showMenu} type="text">
                 {i18next.t("general:Menu")}
-              </Button>
+              </Button> */}
             </React.Fragment> :
             <Menu
               onClick={onClick}
@@ -683,17 +684,49 @@ class App extends Component {
         <Footer id="footer" style={
           {
             textAlign: "center",
+            backgroundColor: "#06636a",
+            color: "white",
+            height: "80px",
           }
         }>
           {
             Conf.CustomFooter !== null ? Conf.CustomFooter : (
               <React.Fragment>
-                Powered by <a target="_blank" href="https://casdoor.org" rel="noreferrer"><img style={{paddingBottom: "3px"}} height={"20px"} alt={"Casdoor"} src={this.state.logo} /></a>
+                Copyright@2022   Weechip Technology Co. Ltd All Right Reserved
               </React.Fragment>
             )
           }
         </Footer>
       </React.Fragment>
+    );
+  }
+
+  renderHeader() {
+    // How to keep your footer where it belongs ?
+    // https://www.freecodecamp.org/neyarnws/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/
+
+    return (
+      <>
+        {!this.state.account ? null : <div style={{display: "none"}} id="CasdoorApplicationName" value={this.state.account.signupApplication} />}
+        <Footer id="footer" style={
+          {
+            display: "flex",
+            borderTop: "1px solid #e8e8e8",
+            backgroundColor: "#06636a",
+            textAlign: "center",
+            color: "white",
+            height: "80px",
+            justifyContent: "center",
+            alignItems: "center",
+          }
+        }>
+          <div style={{display: "flex", width: "1200px", justifyContent: "space-between"}}>
+            <img width={180} src="https://www.weechip.com/logo.png" />
+            <div style={{display: "flex"}}>
+            </div>
+          </div>
+        </Footer>
+      </>
     );
   }
 
@@ -787,7 +820,7 @@ class App extends Component {
       <React.Fragment>
         {(this.state.account === undefined || this.state.account === null) ?
           <Helmet>
-            <link rel="icon" href={"https://cdn.casdoor.com/static/favicon.png"} />
+            <link rel="icon" href={"https://www.weechip.com/favicon.ico"} />
           </Helmet> :
           <Helmet>
             <title>{this.state.account.organization?.displayName}</title>
