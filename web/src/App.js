@@ -691,7 +691,7 @@ class App extends Component {
           {
             Conf.CustomFooter !== null ? Conf.CustomFooter : (
               <React.Fragment>
-                Copyright@2022   Weechip Technology Co. Ltd All Right Reserved
+                Copyright@{new Date().getFullYear()}   Weechip Technology Co. Ltd All Right Reserved
               </React.Fragment>
             )
           }
@@ -748,6 +748,9 @@ class App extends Component {
     if (this.isDoorPages()) {
       return (
         <Layout id="parent-area">
+          {
+            this.renderHeader()
+          }
           <Content style={{display: "flex", justifyContent: "center"}}>
             {
               this.isEntryPages() ?

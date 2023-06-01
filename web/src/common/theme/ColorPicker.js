@@ -23,8 +23,12 @@ import ColorPanel from "antd-token-previewer/es/ColorPanel";
 export const BLUE_COLOR = "#1677FF";
 export const PINK_COLOR = "#ED4192";
 export const GREEN_COLOR = "#00B96B";
+export const WEECHIP_COLOR = "#06636A";
 
 export const COLORS = [
+  {
+    color: WEECHIP_COLOR,
+  },
   {
     color: BLUE_COLOR,
   },

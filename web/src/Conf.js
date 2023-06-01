@@ -24,7 +24,7 @@ export const EnableExtraPages = true;
 export const InitThemeAlgorithm = true;
 export const ThemeDefault = {
   themeType: "default",
-  colorPrimary: "#5734d3",
+  colorPrimary: "#06636A",
   borderRadius: 6,
   isCompact: false,
 };
